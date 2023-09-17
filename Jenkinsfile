@@ -4,7 +4,7 @@ pipeline {
         stage('Clone') {
             steps {
                 echo "checking out the repo"
-                git 'https://github.com/edureka-devops/jenkins-demo.git'
+                git 'https://github.com/RajibRoyChoudhury/DevOpsFinalProject.git'
             
             }
         }
@@ -47,13 +47,13 @@ pipeline {
             steps{
             parallel ( "JavaNcss Report":   
             {
-                git 'https://github.com/edureka-devops/jenkins-demo.git'
+                git 'https://github.com/RajibRoyChoudhury/DevOpsFinalProject.git'
                 sh "cd javancss-master ; mvn test javancss:report ; pwd"
                   
             },
             "FindBugs Report" : {
                 sh "mkdir javancss1 ; cd javancss1 ;pwd"
-                git 'https://github.com/edureka-devops/jenkins-demo.git'
+                git 'https://github.com/RajibRoyChoudhury/DevOpsFinalProject.git'
                 sh "cd javancss-master ; mvn findbugs:findbugs ; pwd"
                 deleteDir()
 
